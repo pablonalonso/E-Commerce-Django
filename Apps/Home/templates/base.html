@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      {% load static %}
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@500&display=swap" rel="stylesheet">
+
+      <link rel="stylesheet" href="{% static 'css/style.css' %}">
+      <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+
+      <!--Font Awsome-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+      <!--Bootstrap-->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+      <title>La Pina Drinks</title>
+        <link href="../static/css/info.css">
+</head>
+
+<body>
+      
+      <div class="f-n">
+            <nav class="first-navbar">
+                  <ul>
+                        <li><a href="{% url 'home' %}">
+                                    <i class="bi bi-house">
+                                          <br>
+                                          Tienda</i>
+                              </a>
+                        </li>
+                            <li>
+                                 <a href="{% url 'Cart:carro' %}">
+                                    <i class="bi bi-cart">Carrito</i>
+                              </a>
+                              <br>
+                              (<span id="number" class="cart-count">0</span>)
+                              <br>
+                            </li>
+
+
+                      <li><button id="clear-button" style="font-size: smaller; --button-hover-bg: red">Vaciar carro</button></li>
+                  </ul
+            </nav>
+      </div>
+
+      <div class="container">
+            
+            
+
+            <div class="header">
+                
+                  <div class="logo">
+                        <h1>La P<i style="font-size: 28px" class="bi bi-tree-fill"></i>na Drinks</h1>
+                        <h4>Tienda de bebidas | 24 HS </h4>
+                        <p>El sabor de la felicidad en cada botella</p>
+                  </div>
+
+            </div>
+
+            <!--Content-->
+            {% block content %}
+
+            {% endblock %}
+            
+            <div class="footer">
+
+                  <div class="social-media">
+                        <div class="icon">
+                              <a class="social-media-anchor one" href="https://www.instagram.com/lapinadrinks/" target="_blank" class="instagram ">
+                                    <i class="fa-brands fa-instagram"></i>
+                              </a>
+                        </div>
+
+                        <div class="icon">
+                              <a class="social-media-anchor  three" href="https://www.wa.link/0h8e0y" target="_blank" class="instagram">
+                                    <i class="bi bi-whatsapp"></i>
+                              </a>
+                        </div>
+                        
+                  </div>
+                  <div style="display: flex; justify-content: center; margin-top: 20px;">
+                        <p>&copy La Pina Drinks |  </p>
+                        <div style="display: block;">
+                              <p> Resistencia, Chaco, Argentina  | </p>
+                              <p>Av. Alvarez Jonte 1502</p>
+                        </div>
+                  </div>
+
+            </div>
+      </div>
+
+
+      <!--Polyfill-->
+      <script src="https://cdn.jsdelivr.net/npm/web-animations-js@2.3.2/web-animations.min.js"></script>
+      <!--Muuri-->
+      <script src="https://cdn.jsdelivr.net/npm/muuri@0.9.5/dist/muuri.min.js"></script>
+      <!--JavaScript-->
+      <script src="../static/js/home.js"></script>
+      <!--Font Awsome-->
+      <script src="../static/js/cart.js"></script>
+
+      <script src="../static/js/number.js"></script>
+      
+</body>
+</html>

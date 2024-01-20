@@ -1,0 +1,56 @@
+{% extends  "./base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+            <div class="input" style="text-align: center;">
+                  <input  id="search-bar" class="input-box" type="text" placeholder="Buscar">
+            </div>
+
+            <div class="navbar">
+                  <ul>
+                        <li><a  class="category" href="#" class="active">Todo</a></li>
+                        <li><a  class="category" href="#" class="active">Fernet</a></li>
+                        <li><a  class="category" href="#">Vinos</a></li>
+                        <li><a  class="category" href="#">Cervezas</a></li>
+                        <li><a  class="category" href="#">Licores</a></li>
+                        <li><a  class="category" href="#">Vodkas</a></li>
+                        <li><a  class="category" href="#">Champagnes</a></li>
+                        <li><a class="category"  href="#">Energizantes</a></li>
+                        <li><a class="category"  href="#">Gaseosas</a></li>
+                        <li><a class="category"  href="#">Ron</a></li>
+                        <li><a class="category"  href="#">Whiskey</a></li>
+                        <li><a class="category"  href="#">Tequila</a></li>
+                      <li><a class="category"  href="#">Promos</a></li>
+                      <li><a class="category"  href="#">Ofertas</a></li>
+                  </ul>
+            <ul>
+
+                  </ul>
+            </div>
+
+            <div class="gallery" id="gallery">
+
+                  {% for product in products %}
+                        <div class="image"
+                        data-category="{{ product.categoria }}"
+                        data-etiquette="{{ product.titulo  }} {{product.categoria}}"
+                        data-description="{{ product.categoria }}"
+                        >
+                              <img src="{{ product.imagen.url }}" alt="">
+                              <div class="bottom">
+                                    <p style="display: none;" id="id">{{ product.id }}</p>
+                                    <p id="titulo">{{ product.titulo }}</p>
+                                    <p id="milimetros">{{ product.mililitros }}ml</p>
+                                    <p id="precio">${{ product.precio }}</p>
+                                    <button type="button" class="add-button"><a href="{% url 'Cart:add' product.id %}">Añadir</a></button>
+                              </div>
+                        </div>
+                  {% endfor %}
+
+            </div>
+
+ {% endblock %}
+            
+

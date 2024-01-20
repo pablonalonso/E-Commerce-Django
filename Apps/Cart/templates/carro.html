@@ -1,0 +1,96 @@
+{% extends  "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+<style>
+
+
+   .tabla-redondeada {
+       border-radius: 25px; /* Ajusta el valor según tus preferencias */
+       overflow: hidden; /* Para asegurar que el contenido de la tabla no se salga del borde redondeado */
+   }
+    table {;
+      border-collapse: collapse;
+      width: 50%;
+      margin: 30px auto;
+    }
+
+    th, td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    tr:hover{
+        background-color: rgba(255, 255, 255, 0.77);
+    }
+
+    tr {
+      background-color: rgba(245, 245, 245, 0.49);
+    }
+
+    .product-actions {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .product-actions button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    #delete-button{
+        background-color: #d93f3f;
+    }
+  </style>
+
+  {% if request.session.cart.items %}
+      <table class="tabla-redondeada">
+                <tr>
+                  <th>Producto</th>
+                  <th>Precio</th>
+                  <th>Cantidad</th>
+                  <th>Acciones</th>
+                </tr>
+
+                {% for  key, value in request.session.cart.items %}
+                     <tr>
+                          <td>Producto 1</td>
+                          <td>$10.00</td>
+                          <td>2</td>
+                          <td class="product-actions">
+                            <button>+</button>
+                            <button>-</button>
+                            <button id="delete-button">Eliminar</button>
+                          </td>
+                    </tr>
+                {% endfor %}
+              <tr>
+                  <td>
+                      <h3>Total $ {{ total_price }}</h3>
+                  </td>
+              </tr>
+              </table>
+
+   {% else %}
+       <table class="tabla-redondeada">
+    <tr >
+        <td >
+            <h3 style="text-align: center; height: 70px; margin: 100px; box-sizing: border-box">Carro vacio<i class="bi bi-cart-x"></i></h3>
+        </td>
+    </tr>
+</table>
+  {% endif %} 
+
+ {% endblock %}
+
+
